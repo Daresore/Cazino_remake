@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>cazino</title>
+    <style>
+        .icon {
+            width: 150px;
+            height: 150px;
+            margin: 0px 5px 5px 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+        .butons {
+            width: 200px;
+            height: 70px;
+            margin: 100px 0px 0px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 25px;
+            color: red;
+            background: royalblue;
+            border-radius: 10px;
+        }
+        .butons:hover {
+            background: lightblue;
+            border-radius: 20px;
+        }
+        .number {
+            font-size: 40px;
+        }
+        .avtomat {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body style="background: slategrey">
+<div class="number">
+    <div>Cash:</div>
+    <div id="money">1000</div>
+</div>
+<div class="avtomat">
+    <img id="1st" class="icon" src="semerka.jpg">
+    <img id="2nd" class="icon" src="semerka.jpg">
+    <img id="3rd" class="icon" src="semerka.jpg">
+</div>
+<div class="avtomat">
+    <div class="butons" onclick="spin()">TAP TO SPIN</div>
+</div>
+</body>
+<script>
+    coin = 1000
+    function spin() {
+         = Math.floor( Math.random()*5)
+        document.getElementById("").innerHTML =
+    }
+</script>
+</html>
