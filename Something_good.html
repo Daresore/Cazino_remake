@@ -48,19 +48,80 @@
     <div id="money">1000</div>
 </div>
 <div class="avtomat">
-    <img id="1st" class="icon" src="semerka.jpg">
-    <img id="2nd" class="icon" src="semerka.jpg">
-    <img id="3rd" class="icon" src="semerka.jpg">
+    <img id="1" class="icon" src="semerka.jpg">
+    <img id="2" class="icon" src="semerka.jpg">
+    <img id="3" class="icon" src="semerka.jpg">
 </div>
 <div class="avtomat">
     <div class="butons" onclick="spin()">TAP TO SPIN</div>
 </div>
 </body>
 <script>
-    coin = 1000
+    coin = 1000;
+    st_generate = 0;
+    nd_generate = 0;
+    rd_generate = 0;
     function spin() {
-         = Math.floor( Math.random()*5)
-        document.getElementById("").innerHTML =
+        st_generate = Math.floor( Math.random()*5);
+        nd_generate = Math.floor( Math.random()*5);
+        rd_generate = Math.floor( Math.random()*5);
+        if (st_generate == 1) {
+            document.getElementById("1").src = 'apelsin.jpg'
+        }
+        else if (st_generate == 2) {
+            document.getElementById("1").src = 'arbuz.jpg'
+        }
+         else if (st_generate == 3) {
+            document.getElementById("1").src = 'jagoda.jpg'
+        }
+         else if (st_generate == 4) {
+            document.getElementById("1").src = 'vinograd.jpg'
+        }
+         else if (st_generate == 0) {
+            document.getElementById("1").src = 'semerka.jpg'
+        }
+        if (nd_generate == 1) {
+            document.getElementById("2").src = 'apelsin.jpg'
+        }
+        else if (nd_generate == 2) {
+            document.getElementById("2").src = 'arbuz.jpg'
+        }
+         else if (nd_generate == 3) {
+            document.getElementById("2").src = 'jagoda.jpg'
+        }
+         else if (nd_generate == 4) {
+            document.getElementById("2").src = 'vinograd.jpg'
+        }
+         else if (nd_generate == 0) {
+            document.getElementById("2").src = 'semerka.jpg'
+        }
+        if (rd_generate == 1) {
+            document.getElementById("3").src = 'apelsin.jpg'
+        }
+        else if (rd_generate == 2) {
+            document.getElementById("3").src = 'arbuz.jpg'
+        }
+         else if (rd_generate == 3) {
+            document.getElementById("3").src = 'jagoda.jpg'
+        }
+         else if (rd_generate == 4) {
+            document.getElementById("3").src = 'vinograd.jpg'
+        }
+         else if (rd_generate == 0) {
+            document.getElementById("3").src = 'semerka.jpg'
+        }
+            (document.getElementById("1").includes("apelsin.png")){
+                coin += 100;
+                document.getElementById("money").innerHTML = 1
+            }
+            if(document.getElementById("1").includes("arbuz.png")){
+                coin += 100;
+                document.getElementById("money").innerHTML = 1
+            }
+            else if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate.includes("1")){
+                coin += 100;
+                document.getElementById("money").innerHTML = 1
+            }
     }
 </script>
 </html>
