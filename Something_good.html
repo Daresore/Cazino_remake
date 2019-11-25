@@ -42,10 +42,10 @@
         }
     </style>
 </head>
-<body style="background: slategrey">
+<body background="fos.jpg">
 <div class="number">
-    <div>Cash:</div>
-    <div id="money">1000</div>
+    <div style="color: yellow">Cash:</div>
+    <div id="money" style="color: yellow">1000</div>
 </div>
 <div class="avtomat">
     <img id="1" class="icon" src="semerka.jpg">
@@ -62,9 +62,13 @@
     nd_generate = 0;
     rd_generate = 0;
     function spin() {
+        coin -= 100;
+        document.getElementById("money").innerHTML = coin;
         st_generate = Math.floor( Math.random()*5);
         nd_generate = Math.floor( Math.random()*5);
         rd_generate = Math.floor( Math.random()*5);
+            document.getElementById("money").innerHTML = coin;
+        }
         if (st_generate == 1) {
             document.getElementById("1").src = 'apelsin.jpg'
         }
@@ -110,17 +114,28 @@
          else if (rd_generate == 0) {
             document.getElementById("3").src = 'semerka.jpg'
         }
-            (document.getElementById("1").includes("apelsin.png")){
-                coin += 100;
-                document.getElementById("money").innerHTML = 1
+        check()
+    }
+    function check() {
+            if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 1){
+                coin += 500;
+            document.getElementById("money").innerHTML = coin
             }
-            if(document.getElementById("1").includes("arbuz.png")){
-                coin += 100;
-                document.getElementById("money").innerHTML = 1
+             else if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 2){
+                coin += 400;
+            document.getElementById("money").innerHTML = coin
             }
-            else if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate.includes("1")){
-                coin += 100;
-                document.getElementById("money").innerHTML = 1
+             else if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 3){
+                coin += 600;
+            document.getElementById("money").innerHTML = coin
+            }
+             else if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 4){
+                coin += 700;
+            document.getElementById("money").innerHTML = coin
+            }
+             else if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 0){
+                coin += 1000;
+            document.getElementById("money").innerHTML = coin
             }
     }
 </script>
