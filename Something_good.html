@@ -33,6 +33,10 @@
         }
         .number {
             font-size: 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
         }
         .avtomat {
             display: flex;
@@ -43,9 +47,10 @@
     </style>
 </head>
 <body background="fos.jpg">
-<div class="number">
-    <div style="color: yellow">Cash:</div>
-    <div id="money" style="color: yellow">1000</div>
+<div class="number" >
+    <p style="color: yellow;">Cash:</p>
+    <p id="money" style="color: yellow; ">1000</p>
+    <p style="color: yellow;">$</p>
 </div>
 <div class="avtomat">
     <img id="1" class="icon" src="semerka.jpg">
@@ -57,67 +62,74 @@
 </div>
 </body>
 <script>
+    work = true;
     coin = 1000;
     st_generate = 0;
     nd_generate = 0;
     rd_generate = 0;
     function spin() {
-        coin -= 100;
-        document.getElementById("money").innerHTML = coin;
-        st_generate = Math.floor( Math.random()*5);
-        nd_generate = Math.floor( Math.random()*5);
-        rd_generate = Math.floor( Math.random()*5);
+        if (work == true) {
+            coin -= 100;
+            st_generate = Math.floor(Math.random() * 5);
+            nd_generate = Math.floor(Math.random() * 5);
+            rd_generate = Math.floor(Math.random() * 5);
             document.getElementById("money").innerHTML = coin;
+            if (st_generate == 1) {
+                document.getElementById("1").src = 'apelsin.jpg'
+            }
+            else if (st_generate == 2) {
+                document.getElementById("1").src = 'arbuz.jpg'
+            }
+            else if (st_generate == 3) {
+                document.getElementById("1").src = 'jagoda.jpg'
+            }
+            else if (st_generate == 4) {
+                document.getElementById("1").src = 'vinograd.jpg'
+            }
+            else if (st_generate == 0) {
+                document.getElementById("1").src = 'semerka.jpg'
+            }
+            if (nd_generate == 1) {
+                document.getElementById("2").src = 'apelsin.jpg'
+            }
+            else if (nd_generate == 2) {
+                document.getElementById("2").src = 'arbuz.jpg'
+            }
+            else if (nd_generate == 3) {
+                document.getElementById("2").src = 'jagoda.jpg'
+            }
+            else if (nd_generate == 4) {
+                document.getElementById("2").src = 'vinograd.jpg'
+            }
+            else if (nd_generate == 0) {
+                document.getElementById("2").src = 'semerka.jpg'
+            }
+            if (rd_generate == 1) {
+                document.getElementById("3").src = 'apelsin.jpg'
+            }
+            else if (rd_generate == 2) {
+                document.getElementById("3").src = 'arbuz.jpg'
+            }
+            else if (rd_generate == 3) {
+                document.getElementById("3").src = 'jagoda.jpg'
+            }
+            else if (rd_generate == 4) {
+                document.getElementById("3").src = 'vinograd.jpg'
+            }
+            else if (rd_generate == 0) {
+                document.getElementById("3").src = 'semerka.jpg'
+            }
+            if (coin == 0) {
+                work = false
+            }
         }
-        if (st_generate == 1) {
-            document.getElementById("1").src = 'apelsin.jpg'
+            else if (work == false){
+            coin -= 1000
         }
-        else if (st_generate == 2) {
-            document.getElementById("1").src = 'arbuz.jpg'
-        }
-         else if (st_generate == 3) {
-            document.getElementById("1").src = 'jagoda.jpg'
-        }
-         else if (st_generate == 4) {
-            document.getElementById("1").src = 'vinograd.jpg'
-        }
-         else if (st_generate == 0) {
-            document.getElementById("1").src = 'semerka.jpg'
-        }
-        if (nd_generate == 1) {
-            document.getElementById("2").src = 'apelsin.jpg'
-        }
-        else if (nd_generate == 2) {
-            document.getElementById("2").src = 'arbuz.jpg'
-        }
-         else if (nd_generate == 3) {
-            document.getElementById("2").src = 'jagoda.jpg'
-        }
-         else if (nd_generate == 4) {
-            document.getElementById("2").src = 'vinograd.jpg'
-        }
-         else if (nd_generate == 0) {
-            document.getElementById("2").src = 'semerka.jpg'
-        }
-        if (rd_generate == 1) {
-            document.getElementById("3").src = 'apelsin.jpg'
-        }
-        else if (rd_generate == 2) {
-            document.getElementById("3").src = 'arbuz.jpg'
-        }
-         else if (rd_generate == 3) {
-            document.getElementById("3").src = 'jagoda.jpg'
-        }
-         else if (rd_generate == 4) {
-            document.getElementById("3").src = 'vinograd.jpg'
-        }
-         else if (rd_generate == 0) {
-            document.getElementById("3").src = 'semerka.jpg'
-        }
-        check()
+        check();
     }
     function check() {
-            if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 1){
+             if(st_generate==nd_generate&&nd_generate==rd_generate&&st_generate == 1){
                 coin += 500;
             document.getElementById("money").innerHTML = coin
             }
